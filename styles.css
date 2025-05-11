@@ -1,0 +1,264 @@
+/* CSS */
+
+/** ========================================= */
+/** ESTILOS GERAIS DAS PÁGINAS  */
+/** ========================================= */
+
+/** RESET DO PROJETO:  */
+/** ----------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/** ROOT CATÁLOGO DE CORES DO PROJETO: */
+/** ----------------------------------------- */
+:root {
+    --cor-bg-primaria: #000;
+    --cor-bg-secundaria: #262424ee;
+    --cor-bg-terciaria: #4b4747d4;
+    --cor-bg-quartenaria: #696363;
+    --cor-bg-quinaria: #9f9999;
+    --cor-bg-sextaria: #8e8a8ae8;
+
+    --cor-txt-primaria: #f1f1f1;
+    --cor-txt-secundaria: #9f9999;
+    --cor-txt-terciaria: #696363;
+}
+/** FORMATAÇÃO DO LAYOUT DAS PÁGINAS */
+/** ----------------------------------------- */
+html, body {
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    /*? Conseguir um Background da Bandeira dos Estados Unidos? */
+    position: relative;
+    height: 100vh;
+    color: var(--cor-txt-primaria);
+    background-color: var(--cor-bg-primaria);
+    text-align: center;
+    flex-direction: row;
+}
+/** ESTILOS GERAIS SECTIONS:  */
+/** ----------------------------------------- */
+section {
+    margin: 4rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+/** TÍTULOS e PARÁGRAFOS GERAIS: */
+/** ----------------------------------------- */
+h1 {
+    color: var(--cor-txt-secundaria);
+    padding: 1rem;
+}
+h2 {
+    padding: 0.5rem;
+}
+p {
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+/** ESTILOS GERAIS DAS DIVS */
+/** ----------------------------------------- */
+div {
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    margin: 2rem;    
+}
+/** ========================================= */
+/** PÁGINA INDEX  */
+/** ========================================= */
+
+/** SECTIONS DA PÁGINA */
+/** ----------------------------------------- */
+section.pag-index {
+    background-color: var(--cor-bg-secundaria);
+}
+/** DIVERSOS DA PÁGINA:  */
+/** ----------------------------------------- */
+div.audio-lista {
+    background-color: var(--cor-bg-terciaria);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+div.bloco-principal {
+    display: block;
+}
+div.texto-lista {
+    display: block;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    margin: 0.5rem;
+    background-color: var(--cor-bg-quartenaria);
+    border-radius: 0.5rem;
+    list-style: none; /* remove o triângulo padrão do summary */
+    cursor: pointer;
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.5); /* sombra um pouco mais forte */
+    /* Transição suave para transformações */
+    transition: box-shadow 0.3s ease-in-out;
+}
+div.texto-lista:hover {
+    /* sombra mais forte ao hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.65);
+}
+/** BOTÕES AUDIO CONTROLS:  */
+/** ----------------------------------------- */
+audio {
+    width: 100%;
+    max-width: 600px; /* largura máxima em telas grandes */ 
+}
+audio::-webkit-media-controls-panel {
+    background-color: var(--cor-bg-quinaria);
+}
+audio::-webkit-media-controls-play-button {
+    background-color: var(--cor-bg-sextaria);
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-volume-slider {
+    background-color: transparent;
+}
+audio::-webkit-media-controls-mute-button {
+    background-color: var(--cor-bg-sextaria);
+    border-radius: 50%;
+}
+audio::-webkit-media-controls-timeline {
+    background-color: var(--cor-bg-sextaria);
+    border-radius: 15px;
+}
+/** BOTÕES LISTA DE FRASES:  */
+/** ----------------------------------------- */
+.texto-lista details {
+    padding: 1rem;
+}
+.texto-lista summary {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem 5rem;
+    color: var(--cor-txt-primaria);
+    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    /* Transição suave para transformações */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.texto-lista summary:hover {
+    color: var(--cor-txt-secundaria);
+    transform: scale(1.01);
+}
+.texto-lista details .card-frases {
+    /* Tela Grande: Lado a lado */
+    /* Tela Pequena: Coluna Central */
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap; /* permite que eles quebrem para a linha de baixo se necessário */
+} 
+.texto-lista details .card-frases p {
+    flex: 1;
+    min-width: 200px;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    white-space: pre-line; /* <- esse é o segredo da próxima parte */
+    /** (white-space: pre-line => Força Quebra de Linha das frases!) */
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* sombra um pouco mais forte */
+    /* Transição suave para transformações */
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+.texto-lista details .card-frases p:hover {
+    /* Aumenta levemente ao passar o mouse */
+    transform: scale(1.01);
+    /* sombra mais forte no hover */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+/** RODAPÉ GERAL:  */
+/** ----------------------------------------- */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0;
+    color: var(--cor-txt-secundaria);
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-bottom: 0.5rem;
+}
+.footer a p {
+    text-decoration: none;
+    letter-spacing: 2.6px;
+    padding: 0.1rem;
+    color: var(--cor-txt-secundaria);
+}
+/** ========================================= */
+/** RESPONSIVIDADE DE TELAS - PÁGINA INDEX:  */
+/** ========================================= */
+/* Em telas pequenas (ex: celulares) empilha as colunas */
+@media (max-width: 768px) {
+    section {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+        padding: 0.5rem;        
+    }
+    h2 {
+        font-size: 1.2rem;
+        padding: 0.3rem;        
+    }
+    p {
+        font-size: 0.9rem;
+        padding: 0.5rem;        
+    }
+    div {
+        margin: 0.5rem;
+    }
+    div.audio-lista {
+        padding: 0.4rem;
+    }
+    audio {
+        width: 90%;
+        max-width: none;
+    }
+    .texto-lista details {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    .texto-lista details p {
+        flex-direction: column;
+    }
+    .texto-lista summary {
+        font-size: 0.9rem;
+        padding: 0.5rem 3rem;
+    }
+    .texto-lista details .card-frases {
+        gap: 0.5rem;
+    }
+    .texto-lista details .card-frases p {
+        min-width: 100%;
+        margin-top: 0.2rem;
+        line-height: 1.1rem;
+    }
+    .footer {
+        letter-spacing: 1.5px;
+    }
+  }
+
+
+
+/** :  */
+/** ----------------------------------------- */
+
+
+/** ========================================= */
+/** PÁGINA X  */
+/** ========================================= */
